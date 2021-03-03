@@ -11,7 +11,7 @@ type DYUpdateItemAPI interface {
 	UpdateItem(ctx context.Context, params *dynamodb.UpdateItemInput, optFns ...func(*dynamodb.Options)) (*dynamodb.UpdateItemOutput, error)
 }
 
-func SetItemUpdate(ctx context.Context,Client DYUpdateItemAPI,table *string,key map[string]types.AttributeValue,field expression.UpdateBuilder) error {
+func UpdateItem(ctx context.Context,Client DYUpdateItemAPI,table *string,key map[string]types.AttributeValue,field expression.UpdateBuilder) error {
 	expr,err := expression.NewBuilder().WithUpdate(field).Build()
 	if err != nil {
 		return err

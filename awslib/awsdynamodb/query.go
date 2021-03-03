@@ -40,6 +40,7 @@ func AllQuery(ctx context.Context, client DYQueryAPI, table *string, keyConditio
 			TableName:                 table,
 			ExpressionAttributeNames:  expr.Names(),
 			ExpressionAttributeValues: expr.Values(),
+			FilterExpression: expr.Filter(),
 			KeyConditionExpression:    expr.KeyCondition(),
 		}
 	}

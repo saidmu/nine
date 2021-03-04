@@ -102,7 +102,7 @@ func GetZoneIDByDNSName(ctx context.Context,Client ListZonesAPI,dns string) (*st
 		}
 		for _, item := range result.HostedZones {
 			if strings.HasSuffix(fqdn,*item.Name) {
-				return aws.String(strings.Split(*item.Id,"/")[1]),nil
+				return aws.String(strings.Split(*item.Id,"/")[2]),nil
 			}
 		}
 		if !result.IsTruncated {

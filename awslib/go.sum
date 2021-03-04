@@ -8,6 +8,8 @@ github.com/aws/aws-sdk-go-v2/service/dynamodb v1.1.1 h1:rs3qt8vsrOXgm3qfVdjVkwnP
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.1.1/go.mod h1:0xGVqnX5hK8bd/Qnqklpdellx5/6KPSPV7vfno3i1Sk=
 github.com/aws/aws-sdk-go-v2/service/dynamodbstreams v1.1.1 h1:sG4o2ak7oynkN11KkdwIrl4VAzef+kRoZotJJh0dBmM=
 github.com/aws/aws-sdk-go-v2/service/dynamodbstreams v1.1.1/go.mod h1:UYAPPHDBldbFpS0RXPsPbUbnLr1HqJ1rvzr0NL3ggSQ=
+github.com/aws/aws-sdk-go-v2/service/elasticache v1.1.1 h1:/1VLazyWVSYTzl3CmmfjT2g3jc9krekNcTyGiW09AYY=
+github.com/aws/aws-sdk-go-v2/service/elasticache v1.1.1/go.mod h1:DfEntnpXu52dWWWGCjrx2RNMsHWHXuyI2LOpn+XkFFY=
 github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.0.1 h1:q+3dVb1s3piv/Q/Ft0+OjU5iKItBRfCvU5wNLQUyIbA=
 github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.0.1/go.mod h1:zurGx7QI3Bk2OFwswSXl3PtJDdgD3QzjkfskiukJ2Mg=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.0.2 h1:4AH9fFjUlVktQMznF+YN33aWNXaR4VgDXyP28qokJC0=

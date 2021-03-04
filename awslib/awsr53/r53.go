@@ -2,6 +2,7 @@ package awsr53
 
 import (
 	"context"
+	"fmt"
 	"github.com/aws/aws-sdk-go-v2/service/route53"
 	"github.com/aws/aws-sdk-go-v2/service/route53/types"
 )
@@ -12,6 +13,10 @@ type ChangeResourceAPI interface {
 
 type ListResourcesAPI interface {
 	ListResourceRecordSets(ctx context.Context, params *route53.ListResourceRecordSetsInput, optFns ...func(*route53.Options)) (*route53.ListResourceRecordSetsOutput, error)
+}
+
+type ListZonesAPI interface {
+	ListHostedZones(ctx context.Context, params *route53.ListHostedZonesInput, optFns ...func(*route53.Options)) (*route53.ListHostedZonesOutput, error)
 }
 
 func UpdateRecord(ctx context.Context,Client ChangeResourceAPI,id *string,resource *types.ResourceRecordSet) error {
@@ -79,4 +84,17 @@ func GetResourceARecord(ctx context.Context,Client ListResourcesAPI,id,name *str
 		listInput.StartRecordName = result.NextRecordName
 	}
 	return output,nil
+}
+
+func GetZoneIDByDNSName(ctx context.Context,Client ListZonesAPI,dns string) (*string,error) {
+	input := &route53.ListHostedZonesInput{}
+	for {
+		result, err := Client.ListHostedZones(ctx,input)
+		if err != nil {
+			return nil, err
+		}
+		for _, item := range result.HostedZones {
+			fmt.Println(*item.Name)
+		}
+	}
 }

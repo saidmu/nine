@@ -2,9 +2,9 @@ package awsr53
 
 import (
 	"context"
+	"github.com/aws/aws-sdk-go-v2/service/route53"
+	"github.com/aws/aws-sdk-go-v2/service/route53/types"
 )
-import "github.com/aws/aws-sdk-go-v2/service/route53"
-import "github.com/aws/aws-sdk-go-v2/service/route53/types"
 
 type ChangeResourceAPI interface {
 	ChangeResourceRecordSets(ctx context.Context, params *route53.ChangeResourceRecordSetsInput, optFns ...func(*route53.Options)) (*route53.ChangeResourceRecordSetsOutput, error)
@@ -43,7 +43,11 @@ func GetResourceCNAMERecord(ctx context.Context,Client ListResourcesAPI,id,name 
 		if err != nil {
 			return nil, err
 		}
-		output = append(output,result.ResourceRecordSets...)
+		for _, item := range result.ResourceRecordSets {
+			if *item.Name == *name {
+				output = append(output,item)
+			}
+		}
 		if !result.IsTruncated {
 			break
 		}

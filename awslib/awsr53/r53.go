@@ -97,4 +97,5 @@ func GetZoneIDByDNSName(ctx context.Context,Client ListZonesAPI,dns string) (*st
 			fmt.Println(*item.Name)
 		}
 	}
+	return nil,nil
 }

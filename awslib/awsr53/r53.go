@@ -68,7 +68,11 @@ func GetResourceARecord(ctx context.Context,Client ListResourcesAPI,id,name *str
 		if err != nil {
 			return nil, err
 		}
-		output = append(output,result.ResourceRecordSets...)
+		for _,item := range result.ResourceRecordSets {
+			if *item.Name == *name {
+				output = append(output,item)
+			}
+		}
 		if !result.IsTruncated {
 			break
 		}

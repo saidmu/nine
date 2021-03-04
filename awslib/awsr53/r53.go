@@ -2,9 +2,11 @@ package awsr53
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"github.com/aws/aws-sdk-go-v2/service/route53"
 	"github.com/aws/aws-sdk-go-v2/service/route53/types"
+	"strings"
 )
 
 type ChangeResourceAPI interface {
@@ -87,6 +89,10 @@ func GetResourceARecord(ctx context.Context,Client ListResourcesAPI,id,name *str
 }
 
 func GetZoneIDByDNSName(ctx context.Context,Client ListZonesAPI,dns string) (*string,error) {
+	fqdn := dns
+	if !strings.HasSuffix(fqdn,".") {
+		fqdn = fmt.Sprintf("%s%s",dns,".")
+	}
 	input := &route53.ListHostedZonesInput{}
 	for {
 		result, err := Client.ListHostedZones(ctx,input)
@@ -94,8 +100,14 @@ func GetZoneIDByDNSName(ctx context.Context,Client ListZonesAPI,dns string) (*st
 			return nil, err
 		}
 		for _, item := range result.HostedZones {
-			fmt.Println(*item.Name)
+			if strings.HasSuffix(fqdn,*item.Name) {
+				return item.Id,nil
+			}
 		}
+		if !result.IsTruncated {
+			break
+		}
+		input.Marker = result.NextMarker
 	}
-	return nil,nil
+	return nil,errors.New("couldn't find the zone")
 }

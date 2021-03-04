@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/service/route53"
 	"github.com/aws/aws-sdk-go-v2/service/route53/types"
 	"strings"
@@ -101,7 +102,7 @@ func GetZoneIDByDNSName(ctx context.Context,Client ListZonesAPI,dns string) (*st
 		}
 		for _, item := range result.HostedZones {
 			if strings.HasSuffix(fqdn,*item.Name) {
-				return item.Id,nil
+				return aws.String(strings.Split(*item.Id,"/")[1]),nil
 			}
 		}
 		if !result.IsTruncated {

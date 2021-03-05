@@ -52,7 +52,7 @@ func GetResourceCNAMERecord(ctx context.Context,Client ListResourcesAPI,id,name 
 			return nil, err
 		}
 		for _, item := range result.ResourceRecordSets {
-			if *item.Name == *name {
+			if strings.Contains(*item.Name,*name) {
 				output = append(output,item)
 			}
 		}
@@ -77,7 +77,7 @@ func GetResourceARecord(ctx context.Context,Client ListResourcesAPI,id,name *str
 			return nil, err
 		}
 		for _,item := range result.ResourceRecordSets {
-			if *item.Name == *name {
+			if strings.Contains(*item.Name,*name) {
 				output = append(output,item)
 			}
 		}

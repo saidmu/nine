@@ -4,10 +4,14 @@ github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue v1.0.2 h1:Lii+DAkH/
 github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue v1.0.2/go.mod h1:L5YMsCINxFbyXwRIbAzg+hNJFsDYhMaspDVcTHl9aDI=
 github.com/aws/aws-sdk-go-v2/feature/dynamodb/expression v1.0.2 h1:BkuxGEB4Ge//i2pW/eteiw3YFw1aQWKOULZgMe4DBtc=
 github.com/aws/aws-sdk-go-v2/feature/dynamodb/expression v1.0.2/go.mod h1:EaHGqA2Mt6VRkXmjYTw7Q8v6Tc0CIGukjjAMJeSoK4g=
+github.com/aws/aws-sdk-go-v2/service/autoscaling v1.1.1 h1:O0iefEPzxDdVVBtY7o0Hyj4SUre27QRh5mthCU+HYDA=
+github.com/aws/aws-sdk-go-v2/service/autoscaling v1.1.1/go.mod h1:lmXoX7IIO5yAHRCmHlqda9tFfsbkY3IO3rt85VvXmIQ=
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.1.1 h1:rs3qt8vsrOXgm3qfVdjVkwnPiBXI2M7qN1nExoZmJfI=
 github.com/aws/aws-sdk-go-v2/service/dynamodb v1.1.1/go.mod h1:0xGVqnX5hK8bd/Qnqklpdellx5/6KPSPV7vfno3i1Sk=
 github.com/aws/aws-sdk-go-v2/service/dynamodbstreams v1.1.1 h1:sG4o2ak7oynkN11KkdwIrl4VAzef+kRoZotJJh0dBmM=
 github.com/aws/aws-sdk-go-v2/service/dynamodbstreams v1.1.1/go.mod h1:UYAPPHDBldbFpS0RXPsPbUbnLr1HqJ1rvzr0NL3ggSQ=
+github.com/aws/aws-sdk-go-v2/service/ecs v1.1.1 h1:McBGvH3M7n8s6SGuS+UNm8+q5BEmE30cNH/81qy0B4Q=
+github.com/aws/aws-sdk-go-v2/service/ecs v1.1.1/go.mod h1:HHh+ZaGFQVK16XijQFZKaJdTpeOdxWK894pn9vY2Tgo=
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.1.1 h1:/1VLazyWVSYTzl3CmmfjT2g3jc9krekNcTyGiW09AYY=
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.1.1/go.mod h1:DfEntnpXu52dWWWGCjrx2RNMsHWHXuyI2LOpn+XkFFY=
 github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.0.1 h1:q+3dVb1s3piv/Q/Ft0+OjU5iKItBRfCvU5wNLQUyIbA=

@@ -1,4 +1,4 @@
-module midecho
+module github.com/saidmu/nine/midecho
 
 go 1.16
 

@@ -13,12 +13,12 @@ func (c ConcurConfig) Limit(next echo.HandlerFunc) echo.HandlerFunc  {
 	select {
 	case c.Queue <- struct{}{}:
 		defer func() { <-c.Queue }()
-		return func(c echo.Context) error {
-			return next(c)
+		return func(e echo.Context) error {
+			return next(e)
 		}
 	default:
-		return func(c echo.Context) error {
-			return c.JSON(http.StatusTooManyRequests,echo.Map{"Message": "Too many requests"})
+		return func(e echo.Context) error {
+			return e.JSON(http.StatusTooManyRequests,echo.Map{"Message": "Too many requests"})
 		}
 	}
 }

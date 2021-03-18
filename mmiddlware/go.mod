@@ -1,4 +1,4 @@
-module github.com/saidmu/nine/midecho
+module github.com/saidmu/nine/mmiddlware
 
 go 1.16
 

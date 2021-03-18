@@ -1,4 +1,4 @@
-package midecho
+package limits
 
 import (
 	"github.com/labstack/echo/v4"

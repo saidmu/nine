@@ -18,8 +18,7 @@ func (c ConcurConfig) Limit(next echo.HandlerFunc) echo.HandlerFunc  {
 		}
 	default:
 		return func(c echo.Context) error {
-			c.JSON(http.StatusTooManyRequests,echo.Map{"Message": "Too many requests"})
-			return nil
+			return c.JSON(http.StatusTooManyRequests,echo.Map{"Message": "Too many requests"})
 		}
 	}
 }
